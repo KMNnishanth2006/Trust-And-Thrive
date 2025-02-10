@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StartUp</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+    <script>
+      function toggleSidebar() {
+        document.getElementById("sidebar").classList.toggle("active");
+      }
+      
+      function toggleAuth(isLoggedIn) {
+        const authButton = document.getElementById("auth-button");
+        const profileContainer = document.getElementById("profile-container");
+        if (isLoggedIn) {
+          authButton.style.display = "none";
+          profileContainer.style.display = "flex";
+        } else {
+          authButton.style.display = "block";
+          profileContainer.style.display = "none";
+        }
+      }
+
+      document.querySelector('.nav-link[href="#about"]').addEventListener('click', function(event) {
+    event.preventDefault();
+    document.getElementById("about").scrollIntoView({ behavior: "smooth" });
+  });
+    </script>
+    <style>
+      /* General Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      html {
+  scroll-padding-top: 60px; /* Adjust according to your navbar height */
+}
+
+      @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+      body {
+        overflow-x: hidden; /* Prevent horizontal scrolling */
+      }
+
+      /* Fixed Navbar */
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: white; /* Slight transparency */
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        padding: 10px 0;
+      }
+
+      .navbar-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+      }
+
+      .navbar-nav {
+        flex-grow: 1;
+        justify-content: center;
+        display: flex;
+        gap: 20px;
+      }
+
+      .nav-item {
+        position: relative;
+        list-style: none;
+      }
+
+      .nav-link {
+        color: black;
+        text-decoration: none;
+        padding: 5px 10px;
+        font-size: 1rem;
+        position: relative;
+      }
+
+      /* Sliding Underline Effect */
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -1px;
+        width: 0%;
+        height: 2px;
+        background-color: #2D409E; /* Blue underline */
+        transition: width 0.3s ease-in-out;
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      .profile-container {
+        display: none;
+        align-items: center;
+        cursor: pointer;
+      }
+
+      .profile img {
+        border-radius: 50%;
+      }
+
+      /* General Styles */
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Hero Section */
+.hero {
+  background: url('./about-bg.jpg') center/cover no-repeat;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+/* Section Title */
+.section-title {
+  padding: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.section{
+  font-size: 20px;
+  text-align:left;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+/* Content Section */
+.content-section {
+  padding: 20px 10%;
+}
+
+/* Icon List */
+.icon-list li {
+  list-style: none;
+  margin-bottom: 10px;
+}
+
+.icon-list li::before {
+  content: '\2022';
+  color: #2D409E;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+}
+
+/* Navbar */
+.navbar {
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar .navbar-brand {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.navbar-nav .nav-item .nav-link {
+  font-size: 1rem;
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+  color:#2D409E;
+}
+
+/* Button */
+.btn-primary {
+  background-color:#2D409E;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+  background-color: #2D409E;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero {
+    height: 40vh;
+  }
+
+  .content-section {
+    padding: 20px 5%;
+  }
+}
+
+
+      @media (max-width: 991px) {
+        .navbar-nav {
+          display: none;
+        }
+      }
+
+      /* Sidebar */
+      .sidebar {
+        position: fixed;
+        right: -300px;
+        top: 0;
+        width: 300px;
+        height: 100%;
+        background-color: #f8f9fa;
+        transition: right 0.3s ease;
+        padding: 20px;
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .sidebar.active {
+        right: 0;
+      }
+      .sidebar .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        cursor: pointer;
+        font-size: 20px;
+      }
+      .signout-btn {
+        background-color: #dc3545;
+        color: white;
+        border: none;
+        padding: 10px;
+        text-align: center;
+        cursor: pointer;
+        width: 100%;
+        margin-top: auto;
+      }
+      .signout-btn:hover {
+        background-color: #c82333;
+      }
+
+      .auth-button {
+        height: 30px;
+        width: 70px;
+      }
+
+      /* Home Section */
+      #home {
+        position: relative;
+        width: 100%;
+        height: 100vh; /* Full screen height */
+        overflow: hidden;
+        margin-top: 60px; /* Adjust to prevent navbar overlap */
+      }
+
+      #home img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Ensures center part of the image is visible */
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      .Text1 {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 2rem;
+        text-align: center;
+        width: 80%;
+        
+      }
+
+      .button {
+        position: absolute;
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .button button {
+        padding: 10px 20px;
+        font-size: 1rem;
+      }
+
+      /* About Section */
+      #about {
+    padding: 10px;
+    background-color: #f8f9fa;
+  }
+  .Text2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  .Text3{
+    text-align: center;
+  }
+
+  #domain{
+    padding: 20px;
+  }
+
+  .cards-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+    max-width: 1200px; /* Increased width */
+    margin: 0 auto;
+    margin-top: 40px;
+}
+
+.card {
+    background: white;
+    padding: 30px; /* Increased padding */
+    border-radius: 20px;
+    border: 1px solid #2D409E;
+    text-align: center;
+    flex: 1;
+    min-width: 320px; /* Ensures larger card size */
+    max-width: 400px; /* Limits card expansion */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card img {
+    height: 120px; /* Increased image size */
+    width: 120px;
+    object-fit: contain;
+    margin-top: 20px;
+}
+
+.card h4 {
+    font-weight: bold;
+    font-size: 1.4rem; /* Slightly larger title */
+    margin: 0;
+}
+
+.card p {
+    margin-top: 25px;
+    font-size: 1.1rem; /* Larger text */
+    text-align: justify;
+}
+#contact {
+  margin-top: 30px;
+  background-color:#2D409E;
+  color: white;
+}
+
+#contact h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+#contact .form-control {
+  padding: 8px;  /* Reduce padding */
+  font-size: 0.9rem; /* Reduce font size */
+  height: 50px; /* Set a smaller height */
+}
+
+#contact .btn-light {
+  font-size: 1.1rem;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+#contact .btn-light:hover {
+  background-color: #f8f9fa;
+  border: .5px solid black;
+}
+
+/* team-section */
+
+#team{
+            font-family: 'Arial', sans-serif;
+            background-color: #2D409E;
+            text-align: center;
+            padding: 30px 10px;
+        }
+        .heading-title {
+            font-size: 28px;
+            color: #ffffff;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+        .carousel-wrapper {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+        .team-carousel {
+            width: 80%;
+            max-width: 900px;
+            margin: auto;
+        }
+        .team-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            margin: 10px;
+        }
+        .team-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        .team-card img {
+            width: 120px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid #2D409E;
+            margin-bottom: 15px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .team-card-title {
+            font-size: 20px;
+            color: #000000;
+            font-weight: bold;
+        }
+        .team-card-text {
+            margin: 5px 0;
+            color: #000000;
+            font-size: 15px;
+        }
+        .team-card-link {
+            color: #2D409E;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 8px;
+        }
+        .slick-prev, .slick-next {
+            color: #2D409E;
+        }
+        .slick-dots li button:before {
+            color: #ffffff !important;
+        }
+
+        .copy p{
+          font-size: small;
+        }
+
+@media (max-width: 768px) {
+  #contact .row {
+    text-align: center;
+  }
+
+  /* Add spacing between Contact Us and Feedback on small screens */
+  #contact .col-md-6:first-child {
+    margin-bottom: 30px;
+  }
+}
+@media (max-width: 768px) {
+  #contact .row {
+    text-align: center;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .cards-wrapper {
+        flex-direction: column; /* Stacks cards vertically */
+        align-items: center; /* Centers them */
+    }
+}
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .Text1 {
+          font-size: 2rem;
+          width: 90%;
+        }
+        .button button {
+          font-size: 0.9rem;
+        }
+      }
+    </style>
+</head>
+<body onload="toggleAuth(false)">
+  <!-- Fixed Navbar -->
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid navbar-container">
+      <a class="navbar-brand" href="#">StartUp</a>
+
+      <div class="collapse navbar-collapse d-lg-flex justify-content-center">
+        <ul class="navbar-nav d-none d-lg-flex">
+          <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="#domain">Domain</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Sign In/Sign Up Button -->
+      <div id="auth-button">
+        <button class="btn btn-outline-primary" onclick="window.location.href='./html/signin.html'">SignIn</button>
+      </div>
+
+      <!-- Profile Image (Hidden by default) -->
+      <div id="profile-container" class="profile-container" onclick="toggleSidebar()">
+        <div class="profile">
+          <img src="https://filestore.community.support.microsoft.com/api/images/0ce956b2-9787-4756-a580-299568810730?upload=true" height="45px" width="45px">
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Sidebar -->
+  <div id="sidebar" class="sidebar">
+    <span class="close-btn" onclick="toggleSidebar()">&times;</span>
+    <h3>User Profile</h3>
+    <p><strong>Name:</strong> John Doe</p>
+    <p><strong>Phone:</strong> +1234567890</p>
+    <p><strong>Email:</strong> johndoe@example.com</p>
+    <button class="signout-btn" onclick="toggleAuth(false)">Sign Out</button>
+  </div>
+
+  <!-- Home Section -->
+  <div id="home">
+    <img src="./html/bg-images/Abstract Paper.svg" alt="Startup Background">
+    <h2 class="Text1" style="font-weight: bold;">Are You Looking For An Ideal Team ?</h2>
+    <h2 class="Text1" style=" top: 48%; font-size:larger;" >We Are Here !</h2>
+    <div class="button">
+      <button class="btn btn-outline-light" onclick="window.location.href='./html/submit.html'">Submit Idea</button>
+    </div>
+  </div>
+<div id="about">
+  <div class="content-section" >
+    <h2 class="section-title">About Us</h2>
+    <p>The startup ecosystem is often fragmented, making it difficult for aspiring entrepreneurs to bring their ideas to life. Many promising projects fail due to a lack of structured teams, hands-on support, and access to the right expertise. That’s where we come in.</p>
+    <p>At <strong>[Your Startup Name]</strong>, we don’t just connect entrepreneurs with industry professionals—we bring them into our team. We work alongside them in the field, transforming ideas into real-world solutions. Our focus is on IoT projects, small startups, and software-hardware integrated solutions, ensuring that innovative concepts turn into successful, tangible products.</p>
+  </div>
+
+  <!-- Our Vision -->
+  <div class="content-section bg-light">
+    <h2 class="section">Our Vision :</h2>
+    <p>We envision a startup ecosystem where groundbreaking ideas don’t get lost due to a lack of support. Our goal is to build strong, hands-on teams that work directly on projects, delivering impactful results in emerging technology sectors.</p>
+  </div>
+
+  <!-- What We Offer -->
+  <div class="content-section">
+    <h2 class="section">What We Offer :</h2>
+    <ul class="icon-list">
+      <li><strong>Hands-On Project Development:</strong> We don’t just provide guidance; we work as a team with entrepreneurs to develop and execute projects from start to finish.</li>
+      <li><strong>Industry Expertise:</strong> Access to professionals and skilled individuals who contribute directly to the success of each project.</li>
+      <li><strong>IoT & Tech Focus:</strong> We specialize in IoT, software, and hardware projects, ensuring dedicated expertise for innovative solutions.</li>
+      <li><strong>End-to-End Support:</strong> From ideation to final product delivery, we provide complete technical and strategic assistance.</li>
+    </ul>
+  </div>
+
+  <!-- Why Choose Us? -->
+  <div class="content-section bg-light">
+    <h2 class="section">Why Choose Us?</h2>
+    <ul class="icon-list">
+      <li><strong>We Work with You:</strong> Instead of just advising, we actively participate in project development.</li>
+      <li><strong>Targeted Expertise:</strong> Focused on IoT, software, and hardware innovations, ensuring deep technical know-how.</li>
+      <li><strong>Real-World Impact:</strong> Our approach ensures that projects don’t just stay ideas but evolve into functional, market-ready solutions.</li>
+    </ul>
+  </div>
+</div>
+<div id="team">
+  <h2 class="heading-title">Meet Our Team</h2>
+<div class="carousel-wrapper">
+  <div class="team-carousel">
+      <div class="team-card">
+          <img src="./html/images/nishanth.jpg">
+          <h3 class="team-card-title">NISHANTH M</h3>
+          <p class="team-card-text">B.E. Computer Science Engineering</p>
+          <p class="team-card-text"><strong>✉️</strong> 2k23cse112@kiot.ac.in</p>
+          <a href="https://www.linkedin.com/in/nishanth486" target="_blank" class="team-card-link">LinkedIn</a>
+      </div>
+      <div class="team-card">
+          <img src="./html/images/karthick.jpg">
+          <h3 class="team-card-title">KARTHICK K N</h3>
+          <p class="team-card-text">B.E. Computer Science Engineering</p>
+          <p class="team-card-text"><strong>✉️</strong> 2k23cse073@kiot.ac.in</p>
+          <a href="https://www.linkedin.com/in/karthick-namasivayam" target="_blank" class="team-card-link">LinkedIn</a>
+      </div>
+      <div class="team-card">
+          <img src="./html/images/naveenprasath.jpg">
+          <h3 class="team-card-title">NAVEEN PRASATH M</h3>
+          <p class="team-card-text">B.E. Computer Science Engineering</p>
+          <p class="team-card-text"><strong>✉️</strong> 2k23cse107@kiot.ac.in</p>
+          <a href="https://www.linkedin.com/in/naveen-prasath-b6ba4528b" class="team-card-link">LinkedIn</a>
+      </div>
+      <div class="team-card">
+          <img src="./html/images/jeevavignesh.jpg">
+          <h3 class="team-card-title">JEEVA VIGNESH S M</h3>
+          <p class="team-card-text">B.E. Computer Science Engineering</p>
+          <p class="team-card-text"><strong>✉️</strong> 2k23cse071@kiot.ac.in</p>
+          <a href="https://www.linkedin.com/in/jeeva-vignesh-004692291"class="team-card-link">LinkedIn</a>
+      </div>
+      <div class="team-card">
+          <img src="./html/images/nagagayathiri.jpg">
+          <h3 class="team-card-title">NAGA GAYATHRI P</h3>
+          <p class="team-card-text">B.E. Computer Science Engineering</p>
+          <p class="team-card-text"><strong>✉️</strong> 2k23cse099@kiot.ac.in</p>
+          <a href="https://www.linkedin.com/in/naga-gayathri" class="team-card-link">LinkedIn</a>
+      </div>
+      <div class="team-card">
+          <img src="./html/images/pavithra.jpg">
+          <h3 class="team-card-title">PAVITHRA S</h3>
+          <p class="team-card-text">B.E. Computer Science Engineering</p>
+          <p class="team-card-text"><strong>✉️</strong> 2k23cse116@kiot.ac.in</p>
+          <a href="https://www.linkedin.com/in/pavithra-srinivasan-62a9312ba" class="team-card-link">LinkedIn</a>
+      </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+<script>
+  $(document).ready(function(){
+      $('.team-carousel').slick({
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          autoplay: true,
+          autoplaySpeed: 2500,
+          arrows: true,
+          dots: true,
+          responsive: [
+              {
+                  breakpoint: 768,
+                  settings: {
+                      slidesToShow: 1
+                  }
+              }
+          ]
+      });
+  });
+</script>
+</div>
+
+  <div id="domain">
+    <h2 class="section-title">Domain</h2>
+    <p style="text-align: center;">We are focusing on three different domains.</p>
+    <div class="cards-wrapper">
+      <div class="card">
+          <h4 style="font-weight: bold;">Software Development</h4>
+          <img src="https://icon-library.com/images/icon-software-free/icon-software-free-0.jpg" alt="">
+          <p>Transform your ideas into powerful digital solutions with our expertise in software development. We craft scalable and user-friendly applications that drive innovation.</p>
+      </div>
+      <div class="card">
+        <h4 style="font-weight: bold;">IoT & Smart Technologies</h4>
+        <img src="https://cdn-icons-png.flaticon.com/512/6090/6090899.png" alt="">
+          <p>Harness the power of the Internet of Things (IoT) with cutting-edge smart solutions. We create intelligent systems that connect and automate everyday life.</p>
+      </div>
+      <div class="card">
+        <h4 style="font-weight: bold;">Hardware Solutions</h4>
+        <img src="https://www.pcbdirectory.com/css/images/pcb-board.png" alt="">
+          <p>We specialize in building robust hardware solutions that integrate seamlessly with modern technology. Our team designs and develops efficient, high-performance hardware systems.</p>
+      </div>
+      
+  </div>
+  
+  </div>
+
+  <div class="content-section text-center">
+    <h2 class="section-title">Let’s build the future - together.</h2>
+    <p>If you’re an entrepreneur with a bold idea in IoT, software, or hardware development, <strong>[Your Startup Name]</strong> is here to turn it into reality.</p>
+    <a href="./html/submit.html" class="btn btn-outline-primary">Submit Idea</a>
+  </div>
+
+  <!-- Contact Section -->
+
+  <!-- Contact & Feedback Section -->
+<div id="contact">
+  <div class="container py-5">
+    <div class="row">
+      <!-- Contact Information -->
+      <div class="col-md-6">
+        <h2 class="text-white mb-4">Contact Us</h2>
+        <p class="text-light">Have questions or need support? Reach out to us, and we'll get back to you as soon as possible.</p>
+        <p class="text-light"><strong>Email:</strong> support@startup.com</p>
+        <p class="text-light"><strong>Phone:</strong> +123 456 7890</p>
+        <p class="text-light"><strong>Address:</strong> 123 Startup Lane, Tech City</p>
+      </div>
+
+      <!-- Feedback Form -->
+      <div class="col-md-6">
+        <h2 class="text-white mb-4">Feedback</h2>
+        <form>
+          <div class="mb-3">
+            <input type="text" class="form-control rounded" placeholder="Your Name" required>
+          </div>
+          <div class="mb-3">
+            <input type="email" class="form-control rounded" placeholder="Your Email" required>
+          </div>
+          <div class="mb-3">
+            <textarea class="form-control rounded" rows="4" placeholder="Your Message" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-light w-100">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Footer Section -->
+<footer class="text-center p-3 copy" style="background-color: #2D409E; color: white;">
+  <p>&copy; <span id="year"></span> StartUp. All rights reserved.</p>
+</footer>
+
+<script>
+// Automatically update the year
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
