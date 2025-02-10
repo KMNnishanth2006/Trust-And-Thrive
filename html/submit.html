@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Idea Submission Form</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+        body {
+            font-family: Arial, sans-serif;
+            background: url('./bg-images/Simple\ Shiny\ \(1\).svg') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 40px 20px;
+        }
+        h2 {
+            font-size: 28px;
+            font-weight: 600;
+            color: #232836;
+            text-align: center;
+            margin-top: 10px;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .name-fields {
+            display: flex;
+            gap: 10px;
+        }
+        .name-fields div {
+            flex: 1;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        input:focus, select:focus, textarea:focus {
+            border-color: #2D409E;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+        select {
+            appearance: none;
+            background-color: white;
+        }
+        textarea {
+            resize: vertical;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            background-color: #415ada;
+            color: white;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background-color: #2D409E;
+        }
+        .file-input {
+            border: 1px dashed #2D409E;
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+            background-color: #f8f8f8;
+        }
+        .file-input:hover {
+            background-color: #e0e0e0;
+        }
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+            }
+            .name-fields {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form>
+            <h2>Submit Your Idea</h2>
+            <div class="name-fields">
+                <div>
+                    <label for="first-name">First Name</label>
+                    <input type="text" id="first-name" name="first-name" required pattern="[A-Za-z]+" title="Only alphabets allowed">
+                </div>
+                <div>
+                    <label for="last-name">Last Name</label>
+                    <input type="text" id="last-name" name="last-name" required pattern="[A-Za-z]+" title="Only alphabets allowed">
+                </div>
+            </div>
+            <label for="gender">Gender</label>
+            <select id="gender" name="gender" required>
+                <option value="" disabled selected>Select</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+            <label for="phone">Mobile Number</label>
+            <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}" title="Enter a valid 10-digit mobile number">
+            <label for="qualification">Qualification</label>
+            <input type="text" id="qualification" name="qualification" required>
+            <label for="school">School/College Name</label>
+            <input type="text" id="school" name="school" required>
+            <label for="domain">Domain of Idea</label>
+            <select id="domain" name="domain" required>
+                <option value="" disabled selected>Select</option>
+                <option value="software">Software</option>
+                <option value="iot">IoT (Internet of Things)</option>
+                <option value="hardware">Hardware</option>
+            </select>
+            <label for="title">Title of Idea</label>
+            <input type="text" id="title" name="title" required>
+            <label for="explanation">Full Explanation of Idea</label>
+            <textarea id="explanation" name="explanation" rows="4" required></textarea>
+            <label for="documents">Upload Related Documents</label>
+            <input type="file" id="documents" name="documents" multiple>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
