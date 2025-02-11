@@ -265,15 +265,6 @@ body {
         margin-top: 60px; /* Adjust to prevent navbar overlap */
       }
 
-      #home img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* Ensures center part of the image is visible */
-        position: absolute;
-        top: 0;
-        left: 0;
-      }
-
       .Text1 {
         position: absolute;
         top: 40%;
@@ -461,6 +452,83 @@ body {
           font-size: small;
         }
 
+
+        @import url("https://fonts.googleapis.com/css?family=Montserrat:700");
+.hero {
+  background-color: #2D409E;
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  font-family: "Montserrat", sans-serif;
+}
+
+.cube {
+  position: absolute;
+  top: 80vh;
+  left: 45vw;
+  width: 10px;
+  height: 10px;
+  border: solid 1px #387aff;
+  transform-origin: top left;
+  transform: scale(0) rotate(0deg) translate(-50%, -50%);
+  -webkit-animation: cube 12s ease-in forwards infinite;
+          animation: cube 12s ease-in forwards infinite;
+}
+.cube:nth-child(2n) {
+  border-color: #387aff;
+}
+.cube:nth-child(2) {
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+  left: 25vw;
+  top: 40vh;
+}
+.cube:nth-child(3) {
+  -webkit-animation-delay: 3s;
+          animation-delay: 3s;
+  left: 75vw;
+  top: 50vh;
+}
+.cube:nth-child(4) {
+  -webkit-animation-delay: 5s;
+          animation-delay: 5s;
+  left: 90vw;
+  top: 10vh;
+}
+.cube:nth-child(5) {
+  -webkit-animation-delay: 7s;
+          animation-delay: 7s;
+  left: 10vw;
+  top: 85vh;
+}
+.cube:nth-child(6) {
+  -webkit-animation-delay: 9s;
+          animation-delay: 9s;
+  left: 50vw;
+  top: 10vh;
+}
+
+@-webkit-keyframes cube {
+  from {
+    transform: scale(0) rotate(0deg) translate(-50%, -50%);
+    opacity: 1;
+  }
+  to {
+    transform: scale(20) rotate(960deg) translate(-50%, -50%);
+    opacity: 0;
+  }
+}
+
+@keyframes cube {
+  from {
+    transform: scale(0) rotate(0deg) translate(-50%, -50%);
+    opacity: 1;
+  }
+  to {
+    transform: scale(20) rotate(960deg) translate(-50%, -50%);
+    opacity: 0;
+  }
+}
 @media (max-width: 768px) {
   #contact .row {
     text-align: center;
@@ -541,12 +609,22 @@ body {
 
   <!-- Home Section -->
   <div id="home">
-    <img src="./html/bg-images/Abstract Paper.svg" alt="Startup Background">
-    <h2 class="Text1" style="font-weight: bold;">Are You Looking For An Ideal Team ?</h2>
+    <div class="hero"> 
+      <div class="hero__title">
+        <h2 class="Text1" style="font-weight: bold;">Are You Looking For An Ideal Team ?</h2>
     <h2 class="Text1" style=" top: 48%; font-size:larger;" >We Are Here !</h2>
     <div class="button">
       <button class="btn btn-outline-light" onclick="window.location.href='./html/submit.html'">Submit Idea</button>
     </div>
+      </div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+    </div>
+    
   </div>
 <div id="about">
   <div class="content-section" >
