@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StartUp</title>
+    <title>Trust & Thrive</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+    <link rel="icon" type="image/x-icon" href="./html/favicon.ico" />
     <script>
       function toggleSidebar() {
         document.getElementById("sidebar").classList.toggle("active");
@@ -167,9 +169,13 @@ body {
   transition: all 0.3s ease-in-out;
 }
 
-.navbar .navbar-brand {
+.navbar{
   font-weight: bold;
   font-size: 1.5rem;
+}
+
+.navbar img{
+  height: 35px;
 }
 
 .navbar-nav .nav-item .nav-link {
@@ -193,6 +199,15 @@ body {
 .btn-primary:hover {
   background-color: #2D409E;
 }
+
+.null {
+  background-color: transparent;
+  color: white;
+  border: none;
+  position: absolute;
+  top: 70%;
+}
+
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -267,7 +282,7 @@ body {
 
       .Text1 {
         position: absolute;
-        top: 40%;
+        top: 30%;
         left: 50%;
         transform: translate(-50%, -50%);
         color: white;
@@ -279,7 +294,7 @@ body {
 
       .button {
         position: absolute;
-        top: 60%;
+        top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
       }
@@ -565,6 +580,10 @@ body {
         .section-title{
           font-size: 2rem;
         }
+
+        .navbar img{
+          height: 25px;
+        }
       }
     </style>
 </head>
@@ -572,7 +591,7 @@ body {
   <!-- Fixed Navbar -->
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid navbar-container">
-      <a class="navbar-brand" href="#">StartUp</a>
+      <img src="./html/bg-images/logo-main.jpg" alt="">
 
       <div class="collapse navbar-collapse d-lg-flex justify-content-center">
         <ul class="navbar-nav d-none d-lg-flex">
@@ -618,48 +637,51 @@ body {
       <div class="cube"></div>
       <div class="hero__title">
         <h2 class="Text1" style="font-weight: bold;">Are You Looking For An Ideal Team ?</h2>
-    <h2 class="Text1" style=" top: 48%; font-size:larger;" >We Are Here !</h2>
+    <h2 class="Text1" style=" top: 40%; font-size:larger;" >We Are Here !</h2>
     <div class="button">
       <button class="btn btn-outline-light" onclick="window.location.href='./html/submit.html'">Submit Idea</button>
     </div>
       </div>
-      
+      <a class="btn null" href="#about">EXPLORE MORE &nbsp;<i class="fa-solid fa-angles-down"></i></a>
     </div>
     
   </div>
 <div id="about">
-  <div class="content-section" >
-    <h2 class="section-title">About Us</h2>
-    <p>The startup ecosystem is often fragmented, making it difficult for aspiring entrepreneurs to bring their ideas to life. Many promising projects fail due to a lack of structured teams, hands-on support, and access to the right expertise. That’s where we come in.</p>
-    <p>At <strong>[Your Startup Name]</strong>, we don’t just connect entrepreneurs with industry professionals—we bring them into our team. We work alongside them in the field, transforming ideas into real-world solutions. Our focus is on IoT projects, small startups, and software-hardware integrated solutions, ensuring that innovative concepts turn into successful, tangible products.</p>
-  </div>
-
-  <!-- Our Vision -->
-  <div class="content-section bg-light">
-    <h2 class="section">Our Vision :</h2>
-    <p>We envision a startup ecosystem where groundbreaking ideas don’t get lost due to a lack of support. Our goal is to build strong, hands-on teams that work directly on projects, delivering impactful results in emerging technology sectors.</p>
-  </div>
-
-  <!-- What We Offer -->
   <div class="content-section">
-    <h2 class="section">What We Offer :</h2>
-    <ul class="icon-list">
-      <li><strong>Hands-On Project Development:</strong> We don’t just provide guidance; we work as a team with entrepreneurs to develop and execute projects from start to finish.</li>
-      <li><strong>Industry Expertise:</strong> Access to professionals and skilled individuals who contribute directly to the success of each project.</li>
-      <li><strong>IoT & Tech Focus:</strong> We specialize in IoT, software, and hardware projects, ensuring dedicated expertise for innovative solutions.</li>
-      <li><strong>End-to-End Support:</strong> From ideation to final product delivery, we provide complete technical and strategic assistance.</li>
-    </ul>
-  </div>
+    <h2 class="section-title">About Us</h2>
+    <p>Many promising projects fail due to a lack of structured teams, hands-on support, and access to the right expertise. Students and aspiring innovators often have brilliant ideas but struggle to execute them effectively due to technical challenges, resource limitations, and inadequate mentorship.</p>
+    <p>At <strong>Trust & Thrive</strong>, we bridge this gap by providing comprehensive support for IoT, hardware, and software projects. Our team of skilled professionals collaborates with students, ensuring they receive the necessary technical guidance, hands-on assistance, and structured workflows to bring their ideas to life. We believe that every innovative concept deserves a chance to become a fully functional, real-world solution.</p>
+</div>
 
-  <!-- Why Choose Us? -->
-  <div class="content-section bg-light">
+<!-- Our Vision -->
+<div class="content-section bg-light">
+    <h2 class="section">Our Vision</h2>
+    <p>We envision a thriving ecosystem where aspiring engineers and innovators receive the support they need to turn their ideas into impactful projects. Our goal is to create structured teams that work together on IoT, hardware, and software-based solutions, ensuring that no great idea goes unrealized due to a lack of technical expertise or mentorship.</p>
+    <p>By fostering collaboration and providing hands-on guidance, we aim to bridge the gap between ideation and execution, helping students build solutions that have real-world applications.</p>
+</div>
+
+<!-- What We Offer -->
+<div class="content-section">
+    <h2 class="section">What We Offer</h2>
+    <ul class="icon-list">
+        <li><strong>Hands-On Project Development:</strong> We don’t just offer advice—we actively participate in project development, working alongside students to ensure successful execution.</li>
+        <li><strong>Structured Team Collaboration:</strong> Our approach involves building well-organized teams with clear roles and responsibilities, helping students work efficiently on their projects.</li>
+        <li><strong>Technical Expertise:</strong> We specialize in IoT, hardware, and software development, providing in-depth knowledge and industry-level insights to enhance project quality.</li>
+        <li><strong>End-to-End Support:</strong> From idea validation and prototyping to final implementation, we provide complete technical and strategic assistance.</li>
+    </ul>
+</div>
+
+<!-- Why Choose Us? -->
+<div class="content-section bg-light">
     <h2 class="section">Why Choose Us?</h2>
     <ul class="icon-list">
-      <li><strong>We Work with You:</strong> Instead of just advising, we actively participate in project development.</li>
-      <li><strong>Targeted Expertise:</strong> Focused on IoT, software, and hardware innovations, ensuring deep technical know-how.</li>
-      <li><strong>Real-World Impact:</strong> Our approach ensures that projects don’t just stay ideas but evolve into functional, market-ready solutions.</li>
+        <li><strong>We Work with You:</strong> Unlike traditional mentorship programs, we actively collaborate on your projects, ensuring hands-on involvement in every stage.</li>
+        <li><strong>Specialized Knowledge:</strong> With a dedicated focus on IoT, hardware, and software projects, we provide expert-level support tailored to your needs.</li>
+        <li><strong>Real-World Impact:</strong> Our approach ensures that projects don’t just remain ideas but evolve into functional, market-ready solutions that make a difference.</li>
+        <li><strong>Bridging the Gap:</strong> We help overcome the challenges of fragmented support, giving students the confidence and resources they need to succeed in their technical endeavors.</li>
     </ul>
-  </div>
+</div>
+
 </div>
 <div id="team">
   <h2 class="heading-title">Meet Our Team</h2>
@@ -760,7 +782,7 @@ body {
 
   <div class="content-section text-center">
     <h2 class="section-title">Let’s build the future - together.</h2>
-    <p>If you’re an entrepreneur with a bold idea in IoT, software, or hardware development, <strong>[Your Startup Name]</strong> is here to turn it into reality.</p>
+    <p>If you’re an entrepreneur with a bold idea in IoT, software, or hardware development, <strong>Trust & Thrive</strong> is here to turn it into reality.</p>
     <a href="./html/submit.html" class="btn btn-outline-primary">Submit Idea</a>
   </div>
 
@@ -774,9 +796,8 @@ body {
       <div class="col-md-6">
         <h2 class="text-white mb-4">Contact Us</h2>
         <p class="text-light">Have questions or need support? Reach out to us, and we'll get back to you as soon as possible.</p>
-        <p class="text-light"><strong>Email:</strong> support@startup.com</p>
-        <p class="text-light"><strong>Phone:</strong> +123 456 7890</p>
-        <p class="text-light"><strong>Address:</strong> 123 Startup Lane, Tech City</p>
+        <p class="text-light"><strong>Email:</strong> trustandthrive.official@gmail.com</p>
+        <p class="text-light"><strong>Phone:</strong> +91 9345787079</p>
       </div>
 
       <!-- Feedback Form -->
@@ -800,7 +821,7 @@ body {
 </div>
 <!-- Footer Section -->
 <footer class="text-center p-3 copy" style="background-color: #2D409E; color: white;">
-  <p>&copy; <span id="year"></span> StartUp. All rights reserved.</p>
+  <p>&copy; <span id="year"></span> Trust & Thrive. All rights reserved.</p>
 </footer>
 
 <script>
